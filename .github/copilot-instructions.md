@@ -4,6 +4,32 @@
 
 ---
 
+## 🚀 快速開始
+
+**本文件是 GitHub Copilot 在 AgentHub 的總指引。**
+
+### 如何使用 Copilot 執行任務？
+
+在 `.github/prompts/` 資料夾中，我們準備了完整的 prompt 模板：
+
+- 🎨 **refine_idea.md** — 把模糊想法轉成結構化 Idea
+- 📊 **evaluate-idea.md** — 評估 Idea 是否適合 Agent 產品化
+- ✅ **define_acceptance.md** — 補充或優化驗收標準
+- 🚀 **add_new_progress.md** — 建立專案追蹤檔案
+- 📝 **write_weekly_update.md** — 更新專案週報
+- 🎉 **show_result.md** — 產出成功案例
+
+**使用方式**：
+1. 打開對應的 prompt 檔案（例如 `refine_idea.md`）
+2. 複製整個 prompt 內容
+3. 在 GitHub Copilot Chat 中貼上
+4. 根據 prompt 的指示填入你的內容
+5. Copilot 會根據規範產出結構化結果
+
+👉 詳細說明請見下方 [💡 如何使用 Prompts](#-如何使用-prompts) 章節
+
+---
+
 ## Copilot 在這個 Repo 的角色
 
 GitHub Copilot 在 AgentHub 的任務是：
@@ -48,7 +74,7 @@ GitHub Copilot 在 AgentHub 的任務是：
    - 需要人工介入（HITL）的環節？
 
 ### 驗收標準的好範例
-
+git
 ✅ 「報告包含所有必要章節（概況、環比、細分、異常、洞察、來源）」（可檢查）  
 ✅ 「數值與來源數據一致（對帳檢核通過）」（可驗證）  
 ✅ 「測試覆蓋率達到 80%」（可測量）  
@@ -85,7 +111,7 @@ GitHub Copilot 在 AgentHub 的任務是：
 
 ## 💡 如何使用 Prompts
 
-在 `.github/copilot/prompts/` 資料夾中有預先準備好的 prompts：
+在 `.github/prompts/` 資料夾中有預先準備好的 prompts：
 
 ### 🎨 Idea 階段
 
@@ -109,14 +135,46 @@ GitHub Copilot 在 AgentHub 的任務是：
   3. Copilot 會逐一評分並給出總分與建議
   4. 根據評級（⭐⭐⭐強烈推薦 / ⭐⭐值得探索 / ⭐謹慎評估 / ❌不建議）決定下一步
 
+#### **define_acceptance.md** — 補充或優化驗收標準
+- **何時使用**：Idea 已有基本架構，但驗收標準不夠具體或缺失時
+- **產出**：清晰、可測量的驗收標準列表
+- **使用方式**：
+  1. 複製 define_acceptance.md 的 prompt
+  2. 貼上你的 Idea 或專案描述
+  3. Copilot 會產出具體的驗收標準
+  4. 檢查是否可觀察、可否定、可測量
+  5. 更新到對應的 Idea 或 InProgress 檔案
+
 ### 🚀 執行階段
 
-- **add_new_progress.md** — 從 idea 建立 InProgress 專案追蹤檔案
-- **write_weekly_update.md** — 更新專案週報到 InProgress 檔案
+#### **add_new_progress.md** — 從 idea 建立 InProgress 專案追蹤檔案
+- **何時使用**：決定要執行某個 Idea，需要建立專案追蹤
+- **產出**：`20_inProgress/` 中的專案檔案
+- **使用方式**：
+  1. 複製 add_new_progress.md 的 prompt
+  2. 提供 Idea 的檔案路徑或內容
+  3. Copilot 會產生完整的 InProgress 專案檔案
+  4. 確認內容後儲存到 `20_inProgress/`
+
+#### **write_weekly_update.md** — 更新專案週報到 InProgress 檔案
+- **何時使用**：每週更新專案進度時
+- **產出**：更新後的 InProgress 檔案
+- **使用方式**：
+  1. 複製 write_weekly_update.md 的 prompt
+  2. 提供本週的進度筆記或重點
+  3. Copilot 會整理成結構化週報並更新檔案
+  4. 檢查數據與日期是否正確
 
 ### 🎉 完成階段
 
-- **show_result.md** — 產出成功案例到 `30_case_result/` 資料夾
+#### **show_result.md** — 產出成功案例到 `30_case_result/` 資料夾
+- **何時使用**：專案完成，需要整理成可複用的案例
+- **產出**：`30_case_result/` 中的案例文件
+- **使用方式**：
+  1. 複製 show_result.md 的 prompt
+  2. 提供 InProgress 檔案或專案總結
+  3. Copilot 會產出包含效益量化的成功案例
+  4. 確認數據準確性後儲存
 
 ---
 
