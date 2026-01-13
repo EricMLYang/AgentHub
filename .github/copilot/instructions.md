@@ -1,6 +1,6 @@
 # GitHub Copilot 使用規範（AgentHub）
 
-> 讓 Copilot 成為你的協作夥伴，而不是製造混亂的機器
+> 讓 Copilot 成為你的協作夥伴，從想法到產品化的完整流程
 
 ---
 
@@ -8,30 +8,62 @@
 
 GitHub Copilot 在 AgentHub 的任務是：
 
-1. **協助寫清楚想法** — 把模糊的點子轉成具體的 Agent Idea（有 Input / Output / Acceptance）
-2. **建立專案追蹤** — 從 idea 建立 InProgress 專案檔案，追蹤執行進度
-3. **更新週報** — 把零散的筆記整理成結構化的週報，更新到專案檔案
-4. **產出成功案例** — 完成專案後，整理成可複用的 Case Result
-5. **定義驗收標準** — 把需求轉成可觀察、可否定的 Acceptance Criteria
+1. **🎨 重寫想法（Refine）** — 把模糊的點子轉成結構化的 Agent Idea（痛點 / 使用者 / Input / Output / Acceptance）
+2. **📊 評估想法（Evaluate）** — 用四階段框架評估 Idea 是否適合 Agent 產品化
+3. **🚀 建立專案追蹤** — 從 idea 建立 InProgress 專案檔案，追蹤執行進度
+4. **📝 更新週報** — 把零散的筆記整理成結構化的週報
+5. **🎉 產出成功案例** — 完成專案後，整理成可複用的 Case Result
 
 ---
 
-## ✅ 產出格式要求
+## ✅ Idea 格式要求
 
-### 必須包含的內容
-- **Input**：Agent 需要什麼資訊？
-- **Output**：Agent 會產生什麼結果？
-- **Acceptance**：怎麼確認 Agent 做對了？（可觀察、可否定）
+### 必須包含的欄位
+
+1. **😫 痛點（現在多煩）**
+   - 現在的做法有什麼問題？
+   - 浪費多少時間？容易出什麼錯？
+   - 必須具體、可量化
+
+2. **👤 目標使用者（誰會用）**
+   - 誰會用這個 Agent？
+   - 他們的背景和需求是什麼？
+
+3. **📥 輸入（Input）**
+   - Agent 需要什麼資訊作為輸入？
+   - 數據來源、檔案格式、API 等
+
+4. **📤 輸出（Output）**
+   - Agent 會產生什麼結果？
+   - 交付形式、內容結構
+
+5. **✅ 驗收方式（Acceptance Criteria）**
+   - 怎麼確認 Agent 做對了？
+   - 必須是可觀察、可否定、可測量的條件
+   - 列出 3-7 條具體標準
+
+6. **⚠️ 風險/限制**
+   - 有什麼資料、權限、時間限制？
+   - 可能會失敗的情況？
+   - 需要人工介入（HITL）的環節？
 
 ### 驗收標準的好範例
+
+✅ 「報告包含所有必要章節（概況、環比、細分、異常、洞察、來源）」（可檢查）  
+✅ 「數值與來源數據一致（對帳檢核通過）」（可驗證）  
 ✅ 「測試覆蓋率達到 80%」（可測量）  
 ✅ 「找出所有不符合 style guide 的地方」（可檢查）  
-✅ 「誤報率低於 5%」（可量化）
+✅ 「誤報率低於 5%」（可量化）  
+✅ 「按時產出（準時率 > 95%）」（可追蹤）  
+✅ 「產生的元件通過 build 和 lint」（可自動驗證）
 
 ### 驗收標準的壞範例
+
 ❌ 「做得好」（無法定義）  
 ❌ 「優化生產力」（無法測量）  
-❌ 「提升使用者體驗」（太模糊）
+❌ 「提升使用者體驗」（太模糊）  
+❌ 「報告品質優良」（主觀）  
+❌ 「效能表現佳」（缺乏標準）
 
 ---
 
@@ -55,43 +87,84 @@ GitHub Copilot 在 AgentHub 的任務是：
 
 在 `.github/copilot/prompts/` 資料夾中有預先準備好的 prompts：
 
-### 📝 Idea 階段
-- **refine_idea.md** — 把模糊想法轉成清楚的 Agent Idea
-- **define_acceptance.md** — 把需求轉成可測量的驗收標準
+### 🎨 Idea 階段
+
+#### **refine_idea.md** — 把模糊想法轉成結構化 Agent Idea
+- **何時使用**：有一個想法但還不夠清楚時
+- **產出**：包含痛點、使用者、Input/Output、驗收標準、風險的完整 Idea
+- **產出位置**：`10_idea/`
+- **使用方式**：
+  1. 複製 refine_idea.md 中的 prompt
+  2. 在 `[在這裡貼上你的想法]` 處填入你的原始想法
+  3. Copilot 會產出結構化內容
+  4. 檢查並調整（特別是驗收標準是否夠具體）
+  5. 儲存到 `10_idea/idea-XX-name.md`
+
+#### **evaluate-idea.md** — 評估 Idea 是否適合 Agent 產品化
+- **何時使用**：Idea 寫好後，想評估是否值得投入資源
+- **產出**：四階段評估報告（策略定位、任務選型、適配評分、架構可行性）
+- **使用方式**：
+  1. 複製 evaluate-idea.md 的完整內容到 Copilot Chat
+  2. 貼上你的 Idea 描述
+  3. Copilot 會逐一評分並給出總分與建議
+  4. 根據評級（⭐⭐⭐強烈推薦 / ⭐⭐值得探索 / ⭐謹慎評估 / ❌不建議）決定下一步
 
 ### 🚀 執行階段
+
 - **add_new_progress.md** — 從 idea 建立 InProgress 專案追蹤檔案
 - **write_weekly_update.md** — 更新專案週報到 InProgress 檔案
 
 ### 🎉 完成階段
-- **show_result.md** — 產出成功案例到 30_case_result/ 資料夾
 
-### 使用方式
-1. 根據你的階段選擇對應的 prompt
-2. 複製 prompt 內容到 Copilot Chat
-3. 填入你的資訊（專案名稱、負責人、筆記等）
-4. 讓 Copilot 產出結構化的內容
-5. 檢查並調整（不要照單全收！）
-6. 儲存到對應的資料夾（10_idea / 20_inProgress / 30_case_result）
+- **show_result.md** — 產出成功案例到 `30_case_result/` 資料夾
 
----  
+---
+
+## ✅ Copilot 適合做什麼
+
+✅ 把零散想法轉成結構化 Idea  
+✅ 評估 Idea 是否適合 Agent 產品化  
+✅ 提供範例或模板（參考 10_idea/ 的案例）  
+✅ 幫忙寫清楚 Input / Output / Acceptance  
+✅ 建議可能的風險或限制  
 ✅ 從簡單筆記產生完整的專案文件  
 ✅ 整理週報並更新到專案追蹤檔案  
-✅ 量化效益並產出成功案例
+✅ 量化效益並產出成功案例  
 
 ### Copilot 不適合做什麼
+
 ❌ 決定要不要做這個 Agent（人來決定）  
-❌ 評估商業價值（人來評估）  
+❌ 評估商業價值（人來評估，Copilot 只提供框架）  
 ❌ 替代團隊討論（Copilot 只是輔助）  
-❌ 替代人工審核與判斷（始終需要人的把關
-✅ 提供範例或模板  
-✅ 幫忙寫清楚 Input / Output / Acceptance  
-✅ 建議可能的風險或限制
+❌ 替代人工審核與判斷（始終需要人的把關）  
+❌ 保證 Idea 一定成功（評估只是參考）
 
-### Copilot 不適合做什麼
-❌ 決定要不要做這個 Agent（人來決定）  
-❌ 評估商業價值（人來評估）  
-❌ 替代團隊討論（Copilot 只是輔助）
+---
+
+## 📊 評估框架說明
+
+使用 evaluate-idea.md 時，會經過四個階段：
+
+### 第一階段：策略定位評估 (25%)
+- Vertical AI 定位：是否針對特定行業？
+- RaaS 轉型潛力：能否從「提供工具」進化為「交付成果」？
+- 數據飛輪與護城河：能否透過使用累積數據？
+
+### 第二階段：任務選型與技術路徑 (25%)
+- 判斷是否真的需要 AI Agent（vs 純程式碼 / 工作流 / RAG）
+- F.D.A 框架：Friction（摩擦點）、Data Nexus（數據交匯）、Actionable Outcome（可執行成果）
+
+### 第三階段：Agent 化適配評分表 (40%)
+- 規則明確性、結果可驗證性、回饋延遲性
+- 重複性與頻率、狀態空間可模擬性、數據標註可得性
+
+### 第四階段：架構可行性檢驗
+- 數據基礎層、策略分析層、互動 Agent 層
+
+**總分 8.0-10.0 = ⭐⭐⭐強烈推薦**  
+**總分 6.0-7.9 = ⭐⭐值得探索**  
+**總分 4.0-5.9 = ⭐謹慎評估**  
+**總分 0-3.9 = ❌不建議**
 
 ---
 
@@ -103,23 +176,37 @@ GitHub Copilot 在 AgentHub 的任務是：
 - 有更好的 prompt 寫法
 - 需要新的使用規範
 
-## 📂 工作流程建議
-
-### 1️⃣ 有新想法時
-使用 `refine_idea.md` → 產出到 `10_idea/`
-
-### 2️⃣ 開始執行時
-使用 `add_new_progress.md` → 產出到 `20_inProgress/`
-
-### 3️⃣ 每週更新時
-使用 `write_weekly_update.md` → 更新 `20_inProgress/` 中的專案檔案
-
-### 4️⃣ 完成專案時
-使用 `show_result.md` → 產出到 `30_case_result/`
+請開一個 Issue 討論，讓這份文件持續改進！
 
 ---
 
-請開一個 Issue 討論，讓這份文件持續改進！
+## 📂 工作流程建議
+
+### 1️⃣ 有新想法時
+使用 `refine_idea.md` → 產出到 `10_idea/idea-XX-name.md`
+
+**參考範例**：
+- [idea-01-automated-analytics-reporting.md](../../10_idea/idea-01-automated-analytics-reporting.md) — 自動化數據分析報告
+- [idea-05-design-to-code.md](../../10_idea/idea-05-design-to-code.md) — Design-to-Code Agent
+- [idea-07-pm-agent.md](../../10_idea/idea-07-pm-agent.md) — PM Agent
+
+### 2️⃣ 評估想法時
+使用 `evaluate-idea.md` → 得到評分與建議
+
+**檢查重點**：
+- 總分是否 ≥ 6.0？
+- 是否真的需要 Agent（vs 工作流/RAG）？
+- 驗收標準是否可測量？
+- 是否有數據飛輪機制？
+
+### 3️⃣ 開始執行時
+使用 `add_new_progress.md` → 產出到 `20_inProgress/`
+
+### 4️⃣ 每週更新時
+使用 `write_weekly_update.md` → 更新 `20_inProgress/` 中的專案檔案
+
+### 5️⃣ 完成專案時
+使用 `show_result.md` → 產出到 `30_case_result/`
 
 ---
 

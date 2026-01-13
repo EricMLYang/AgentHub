@@ -10,6 +10,16 @@
 
 ---
 
+填寫人：@eric
+
+描述：PM Agent - 解析需求輸入，自動產出結構化文件（PRD、SPEC、Roadmap、任務清單、估時），進行任務拆分、依賴分析、風險識別，並定期產出 Daily/Sprint Report 與 Project Track & Risk Report
+
+同樣困擾：
+
+時間成本：每週需 2-3 小時整理 Sprint Report、Risk Report，每個需求文件撰寫約 1-2 小時
+
+---
+
 填寫人：
 
 描述：
