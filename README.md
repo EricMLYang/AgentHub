@@ -1,134 +1,45 @@
 # AgentHub
 
-> 小團隊的 AI Agent 知識庫：從想法到成功案例的完整追蹤
+## 用好 AI 的領先指標
+## 一、Vibe Code 肌肉記憶
+1. 額度清零：GitHub Copilot 每月額度（或 API 配額）必須用完，確保高頻率的磨合。
+2.AI-First 習慣：任何任務（寫代碼、改 SQL、修 README）想到就丟給 AI 做第一版，絕不讓 AI 閒著。
+3. 精進、分享各種讓 1 跟 2 可以越來越輕鬆的技巧
+* (緣由: 讓整理任務、讓 AI 產出，變成一種習慣，這個是進階應用的認知基礎)
 
-## 這 Repo 是什麼？
 
-**AgentHub** 是一個讓團隊協作 AI Agent 的輕量知識庫。我們不追求立刻寫出完美的程式碼，而是專注在：
+## 二、Agent 發想流程化
+1. 捕捉重複：每週列出一個超過 15 分鐘的重複性瑣事（如整理日誌、分析數據異常）。
+2. 轉成 IDEA：用「任務選型評估表」評估這個瑣事是否適合做成 Agent。
+3. 轉化成 Case Study：把這個 IDEA 實作成 Agent，並記錄開發過程與效果。
+* (緣由: Agent 最適合解決重複性瑣事，流程化可以讓這個過程變成一種習慣)
 
-1. **想法管理** — 收集並釐清每個 Agent 的痛點、輸入、輸出、驗收標準
-2. **進度追蹤** — 追蹤正在執行的專案，每週更新進度與學習
-3. **成功案例** — 整理可複用的經驗，讓其他人參考與借鑒
-4. **團隊共識** — 建立對 Agent 的共同理解
 
-## 📂 資料夾結構
 
-```
-AgentHub/
-├── 10_idea/              # 💡 想法庫：待執行的 Agent ideas
-├── 20_inProgress/        # 🚀 進行中：正在執行的專案追蹤
-├── 30_case_result/       # 🎉 成功案例：可複用的經驗分享
-├── 00_weekly/            # 📅 週報：團隊進度摘要
-├── docs/                 # 📖 知識文件：Agent 概念與指南
-└── .github/copilot/      # 🤖 Copilot prompts：協助產出文件
-```
+## Actions
+### Action 1: 寫週報
+1. 打開本週週報文件（在 [`00_weekly/`](00_weekly/) 目錄）
+2. 對著 Copilot 對話框輸入以下格式：
+   ```
+   Eric
 
-## 🚀 如何開始？
+   幫我填寫本份周報:
+   額度 22%
 
-### 1️⃣ 有新想法時
+   本周:
+   規劃開發輔助架構
 
-**目標**：把模糊的想法變成清楚的 Agent Idea
+   下周:
+   數據分析 Agent 推進
+   ```
+3. 請 Agent 幫你寫上，檢查後完成
 
-1. 使用 Copilot prompt: [refine_idea.md](.github/copilot/prompts/refine_idea.md)
-2. 填寫：痛點、目標使用者、輸入、輸出、驗收標準
-3. 儲存到 `10_idea/idea-XX-{name}.md`
-
-**範例**：[idea-01-automated-analytics-reporting.md](10_idea/idea-01-automated-analytics-reporting.md)
-
----
-
-### 2️⃣ 開始執行時
-
-**目標**：建立專案追蹤檔案，開始記錄進度
-
-1. 從 `10_idea/` 選擇一個要執行的 idea
-2. 使用 Copilot prompt: [add_new_progress.md](.github/copilot/prompts/add_new_progress.md)
-3. 填寫：負責人、開始日期、初始狀態
-4. 儲存到 `20_inProgress/` (與 idea 同名)
-
-**範例**：[idea-01-automated-analytics-reporting.md](20_inProgress/idea-01-automated-analytics-reporting.md)
-
----
-
-### 3️⃣ 每週更新時
-
-**目標**：記錄本週進度、問題、下週計畫
-
-1. 使用 Copilot prompt: [write_weekly_update.md](.github/copilot/prompts/write_weekly_update.md)
-2. 貼上你的工作筆記
-3. 更新到 `20_inProgress/` 中的專案檔案
-
-**週報格式**：
-- 本週完成
-- 遇到的問題
-- 下週計畫
-- 需要協助（標記 @someone）
-
----
-
-### 4️⃣ 完成專案時
-
-**目標**：產出可複用的成功案例
-
-1. 使用 Copilot prompt: [show_result.md](.github/copilot/prompts/show_result.md)
-2. 填寫：背景、解決方案、量化效益、技術架構、學習
-3. 儲存到 `30_case_result/case-XX-{name}.md`
-
-**重點**：量化效益（節省多少時間？減少多少錯誤？）
-
-## 💡 使用 GitHub Copilot
-
-我們提供了完整的 Copilot prompts 協助你產出文件：
-
-- 📝 **refine_idea.md** — 把模糊想法轉成清楚的 Agent Idea
-- 🚀 **add_new_progress.md** — 從 idea 建立專案追蹤檔案
-- 📅 **write_weekly_update.md** — 更新專案週報
-- 🎉 **show_result.md** — 產出成功案例
-- ✅ **define_acceptance.md** — 定義驗收標準
-
-**使用方式**：複製 prompt → 貼到 Copilot Chat → 填入你的資訊 → 檢查產出
-
-詳細說明：[Copilot Instructions](.github/copilot/instructions.md)
-
----
-
-## 🎯 運作原則
-
-### 保持簡單
-- 不用每週都寫很多，3 件完成的事就夠
-- 從簡單開始，隨專案進行逐步補充細節
-- 重點是保持透明，不是寫漂亮文件
-
-### 量化效益
-- 記錄時間投入（預估 vs 實際）
-- 追蹤節省的時間或減少的錯誤
-- 用數字說話，不要空泛描述
-
-### 團隊協作
-- 每週至少更新一次進度
-- 遇到問題就寫下來，標記需要協助
-- 完成後分享學習，讓其他人受益
-
----
-
-## 📚 延伸閱讀
-
-- 📖 [什麼是 Agent？](docs/what-is-agent/agent-in-one-page.md) — 一頁搞懂 Agent 定義與範例
-- 🤝 [如何貢獻](CONTRIBUTING.md) — 了解工作流程
-- 🤖 [Copilot 使用指南](.github/copilot/instructions.md) — 如何使用 Copilot 協助產出
-- 📊 [週報範例](00_weekly/2026-W02.md) — 看看團隊的進度更新
-- 📁 [InProgress 說明](20_inProgress/README.md) — 專案追蹤最佳實踐
-
----
-
-## 🌟 範例專案
-
-想知道完整流程長什麼樣？看看這個範例：
-
-1. **Idea**: [自動化數據分析報告 Agent](10_idea/idea-01-automated-analytics-reporting.md)
-2. **InProgress**: [執行追蹤](20_inProgress/idea-01-automated-analytics-reporting.md)
-3. **週報**: [2026-W02 進度](00_weekly/2026-W02.md)
-
----
-
-**開始行動** → 從 [10_idea](10_idea/) 找一個想法開始，或建立你的新 idea！
+### Action 2: 填寫重複任務
+1. 前往 [`05_repeat_task.md/`](05_repeat_task.md/) 目錄，挑選一個合適的大類檔案（如數據分析、系統開發等）
+2. 若沒有合適的大類，可以新增一個 `.md` 檔案
+3. 按照檔案內的格式填寫：
+   - 填寫人：@你的名字
+   - 描述：清楚說明重複任務的內容
+   - 同樣困擾：標記同樣遇到這個問題的人
+   - 時間成本：記錄每次花費時間與頻率
+4. 也可以在別人已填寫的任務下方「同樣困擾」欄位加上自己的名字表示認同
