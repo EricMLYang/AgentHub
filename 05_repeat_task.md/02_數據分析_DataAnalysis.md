@@ -1,26 +1,8 @@
 # 數據分析 (Data Analysis)
 
-> 💡 關於「AI 化建議」欄位：請參考 [templates/repeat_task/ai-automation-guide.md](../templates/repeat_task/ai-automation-guide.md)
-
 ---
 
-填寫人：@eric
-
-描述：每週要手動把多個來源的曝光/觀看/停留指標整理成同一份表，還要補缺值與對齊欄位
-
-同樣困擾：@alice @bob
-
-時間成本：每次 45 分鐘；每週
-
-**AI 化建議**：
-- [ ] 數據提取與清洗 — 🟢 — Workflow — 省 15 分鐘
-- [ ] 欄位對齊與缺值補充 — 🟢 — Workflow — 省 10 分鐘
-- [ ] 異常值檢測 — 🟡 — Agent — 省 5 分鐘
-- [ ] 數據驗證報告 — 🟢 — Workflow — 省 5 分鐘
-
----
-
-填寫人：@eric
+填寫人：@Vanessa
 
 描述：自動化數據分析報告 Agent - 定期自動讀取 Databricks Gold Table/指標，用 LLM 生成結構化敘事報告（包含當期概況、環比/同比、細分貢獻、異常與風險、洞察與行動建議等），支援排程產出並發佈到 Slack/Email/Confluence
 
