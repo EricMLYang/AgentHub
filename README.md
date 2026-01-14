@@ -18,10 +18,11 @@
 
 ## Actions
 ### Action 0: 補充 Doc 知識
-1. 前往 [`docs/`](docs/) 目錄
-2. 自由補充任何與 Agent 開發相關的知識、心得、學習筆記
-3. 可以新增檔案或編輯現有文件
-4. 這些內容可以作為本週的學習成果報告
+1. 前往 [`docs/`](docs/) 目錄，特別推薦 [`docs/knowledge/`](docs/knowledge/) 知識種子庫
+2. 查閱現有的一頁紙筆記：RAG、Chain-of-Thought、Function Calling、Prompt 安全、評估指標
+3. 自由補充任何與 Agent 開發相關的知識、心得、學習筆記
+4. 可以新增檔案或編輯現有文件
+5. 這些內容可以作為本週的學習成果報告
 
 ### Action 1: 寫週報
 1. 打開本週週報文件（在 [`00_weekly/`](00_weekly/) 目錄）
@@ -49,3 +50,16 @@
    - 同樣困擾：標記同樣遇到這個問題的人
    - 時間成本：記錄每次花費時間與頻率
 4. 也可以在別人已填寫的任務下方「同樣困擾」欄位加上自己的名字表示認同
+
+### 如何在 Copilot Chat 套用模板
+> 所有模板已統一整理至 [`templates/`](templates/) 資料夾
+
+1. 在 Copilot Chat 輸入「@workspace」並指定模板，例如：
+   ```
+   @workspace 套用 templates/prompts/refine_idea.md，幫我整理以下想法：
+   [貼上你的想法]
+   ```
+2. 或直接打開 [templates/README.md](templates/README.md) 查看所有可用模板及使用說明。
+3. 檢查生成結果後再提交：必要時讓 Copilot 再次調整語氣、格式或補充驗收標準。
+
+更多使用方式請見：[templates/README.md](templates/README.md)
