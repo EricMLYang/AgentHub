@@ -8,7 +8,7 @@
 
 兩者都是「告訴 AI 如何協助這個專案」的設定檔：
 
-- **GitHub Copilot**: `.github/copilot/instructions.md`
+- **GitHub Copilot**: `.github/copilot-instructions.md`
 - **Claude Code**: `.claude/claude.md`
 
 ---
@@ -17,7 +17,7 @@
 
 | 功能 | GitHub Copilot | Claude Code |
 |------|---------------|-------------|
-| 檔案位置 | `.github/copilot/instructions.md` | `.claude/claude.md` |
+| 檔案位置 | `.github/copilot-instructions.md` | `.claude/claude.md` |
 | 支援工具 | VS Code (Copilot 擴充) | Claude Desktop/Web |
 | 讀取方式 | 自動讀取為 workspace context | 自動讀取為 project context |
 | 設定內容 | 角色定義、格式要求、禁止事項 | 角色定義、格式要求、禁止事項 |
@@ -44,7 +44,7 @@
 
 ## AgentHub 的實踐
 
-我們的 `.github/copilot/instructions.md` 包含：
+我們的 `.github/copilot-instructions.md` 包含：
 
 1. **明確角色** — Copilot 是協助「寫清楚想法」的夥伴
 2. **格式要求** — 必須有 Input/Output/Acceptance
