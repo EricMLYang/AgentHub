@@ -14,9 +14,8 @@
 
 * **路徑：** `.github/prompts/*.prompt.md`
 * **用法：** 在 Copilot Chat 中輸入 `#prompt` 即可觸發。
-* **Agent 執行：** 當你下達一個模糊指令時，Agent 可以透過 `executePrompt` 工具主動搜尋這些檔案，並將其內容注入目前的上下文。
 
-### 2. executePrompt 工具 (Agent 專用)
+### 2. executePrompt 工具 (Agent 專用，預覽版)
 
 2026 年最新的 Copilot Agent Mode 具備了 **Tool Calling** 能力。其中最關鍵的工具就是 `executePrompt`。
 
